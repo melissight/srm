@@ -34,7 +34,6 @@ defmodule GW.Web do
       import Ecto.Query, only: [from: 1, from: 2]
       import Plug.Conn
       import GW.Router.Helpers
-      import GW.Router.Helpers
       import GW.Gettext
 
     end

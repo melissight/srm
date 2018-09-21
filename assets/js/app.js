@@ -1,17 +1,42 @@
-import css from "../css/app.css"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux'
+import { Provider} from 'react-redux'
+import thunk from 'redux-thunk'
+import createHistory from 'history/createBrowserHistory'
+import {
+  ConnectedRouter as Router,
+  routerMiddleware
+} from 'react-router-redux'
+import {
+  Route,
+  Link
+} from 'react-router-dom'
 
-import "phoenix_html"
+import '../css/app.css'
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
 
-// import socket from "./socket"
+import configRoutes from './routes'
+import App from './views/registrations/new'
+import AnotherApp from './views/sessions/new'
+import rootReducer from './reducers'
 
-import React from "react";
-import ReactDOM from "react-dom";
+const history = createHistory()
+const rMiddleware = routerMiddleware(history)
 
-import Jumbotron from './components/Jumbotron';
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk, rMiddleware)
+)
 
-ReactDOM.render(<Jumbotron />, document.getElementById("react-app"));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <div>
+        {configRoutes()}
+      </div>
+    </Router>
+  </Provider>,
+  document.getElementById('main_container')
+);
