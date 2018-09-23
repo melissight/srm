@@ -11,8 +11,12 @@ config :gw, GW.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/webpack/bin/webpack.js", "--mode", "development", "--watch-stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: [node: ["node_modules/webpack-dev-server/bin/webpack-dev-server.js", "--colors", "--stdin", cd: Path.expand("../assets", __DIR__)]]
+
+  # Not working in windows because of npm permission issue
+  # watchers: [npm: ["run", "start", cd: Path.expand("../assets", __DIR__)]]
+
+  # watchers: [npm: ["run", "watch", cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
 #
@@ -56,3 +60,7 @@ config :gw, GW.Repo,
   database: "gw",
   hostname: "localhost",
   pool_size: 10
+
+# Configure Guardian secret key
+config :gw, GW.Guardian,
+  secret_key: "OSMuzr1uWJthItzsyXItnRoM3MLNaZXUwkamEHTwxUBYPPDuQTLPJnMBMiMATRjF"

@@ -5,10 +5,10 @@ defmodule GW.Mixfile do
     [
       app: :gw,
       version: "0.0.1",
-      elixir: "~> 1.4",
-      elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
-      start_permanent: Mix.env == :prod,
+      elixir: "~> 1.6",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
     ]
@@ -20,13 +20,13 @@ defmodule GW.Mixfile do
   def application do
     [
       mod: {GW.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :comeonin]
     ]
   end
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web"]
+  defp elixirc_paths(_), do: ["lib", "web"]
 
   # Specifies your project dependencies.
   #
@@ -35,14 +35,16 @@ defmodule GW.Mixfile do
     [
       {:phoenix, "~> 1.3.0"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
+      {:phoenix_ecto, "~> 3.3"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.11"},
+      {:phoenix_live_reload, "~> 1.1", only: :dev},
+      {:gettext, "~> 0.14"},
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:cowboy, "~> 1.0"},
-      {:timex, "~> 3.1"},
-      {:guardian, github: "arashm/guardian"}
+      {:comeonin, "~> 4.0.3"},
+      {:bcrypt_elixir, "~> 1.0"},
+      {:guardian, "~> 1.0"}
     ]
   end
 
@@ -56,7 +58,7 @@ defmodule GW.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end

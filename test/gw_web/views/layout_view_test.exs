@@ -1,3 +1,3 @@
-defmodule GWWeb.LayoutViewTest do
-  use GWWeb.ConnCase, async: true
+defmodule GW.LayoutViewTest do
+  use GW.ConnCase, async: true
 end

@@ -1,4 +1,4 @@
-defmodule GWWeb.ChannelCase do
+defmodule GW.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,17 +21,17 @@ defmodule GWWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint GWWeb.Endpoint
+      @endpoint GW.Endpoint
     end
   end
-
 
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(GW.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(GW.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end

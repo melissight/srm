@@ -1,11 +1,33 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     GW.Repo.insert!(%GW.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+# alias GW.{Repo, User}
+
+# [
+#   %{
+    
+#     first_name: "Melissa",
+#     last_name: "Capps",
+#     username: "mcapps",
+#     email: "melissa@sightsource.net",
+#     password: "12345",
+#     time_zone_id: 1
+    
+    
+#   },
+# ]
+# |> Enum.map(&User.changeset(%User{}, &1))
+# |> Enum.each(&Repo.insert!(&1))
+
+
+
+alias GW.{Repo, TimeZone}
+
+[
+  %{
+    
+    time_zone_name: "Eastern Standard",
+    time_zone_abbrev: "EST",
+    utc_offset: -5,
+    is_dst: true
+  },
+]
+|> Enum.map(&TimeZone.changeset(%TimeZone{}, &1))
+|> Enum.each(&Repo.insert!(&1))

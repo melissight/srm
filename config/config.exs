@@ -12,7 +12,7 @@ config :gw,
 # Configures the endpoint
 config :gw, GW.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "nOocgA9JwcCgcJMYroatdMhnJMPrUWoAtaUcB5qWG5XUH784UCA9iBaf9c8T5ZaX",
+  secret_key_base: "H5AcfaG9fEz2gjjKEBJ3PNT7peIPEo270GOHwgataQEsfdx8Ujsi3aDlxel77eQH",
   render_errors: [view: GW.ErrorView, accepts: ~w(html json)],
   pubsub: [name: GW.PubSub,
            adapter: Phoenix.PubSub.PG2]
@@ -21,6 +21,13 @@ config :gw, GW.Endpoint,
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
+
+# Configures Guardian
+config :gw, GW.Guardian,
+  issuer: "gw",
+  ttl: {30, :days},
+  verify_issuer: true
+  # serializer: GW.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
