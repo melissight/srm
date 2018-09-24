@@ -1,9 +1,9 @@
-defmodule GW.SessionController do
-  use GW.Web, :controller
+defmodule SRM.SessionController do
+  use SRM.Web, :controller
 
-  alias GW.Accounts
+  alias SRM.Accounts
 
-  action_fallback(GW.FallbackController)
+  action_fallback(SRM.FallbackController)
 
   def create(conn, params) do
     with {:ok, user} <- Accounts.authenticate(params) do

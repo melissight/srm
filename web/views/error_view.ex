@@ -1,5 +1,5 @@
-defmodule GW.ErrorView do
-  use GW.Web, :view
+defmodule SRM.ErrorView do
+  use SRM.Web, :view
 
   def render("permission_denied", _assigns) do
     %{errors: "Permission denied"}

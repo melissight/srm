@@ -1,68 +1,68 @@
-defmodule GW.FallbackController do
+defmodule SRM.FallbackController do
   @moduledoc """
   Translates controller action results into valid `Plug.Conn` responses.
 
   See `Phoenix.Controller.action_fallback/1` for more details.
   """
-  use GW.Web, :controller
+  use SRM.Web, :controller
 
   def call(conn, {:error, %Ecto.Changeset{} = changeset}) do
     conn
     |> put_status(:unprocessable_entity)
-    |> render(GW.ChangesetView, "error.json", changeset: changeset)
+    |> render(SRM.ChangesetView, "error.json", changeset: changeset)
   end
 
   def call(conn, {:error, :not_found}) do
     conn
     |> put_status(:not_found)
-    |> render(GW.ErrorView, :"404")
+    |> render(SRM.ErrorView, :"404")
   end
 
   def call(conn, {:error, :wrong_credentials}) do
     conn
     |> put_status(:unprocessable_entity)
-    |> render(GW.SessionView, "wrong_credentials.json")
+    |> render(SRM.SessionView, "wrong_credentials.json")
   end
 
   def call(conn, {:error, :no_session}) do
     conn
     |> put_status(:unprocessable_entity)
-    |> render(GW.SessionView, "no_session.json")
+    |> render(SRM.SessionView, "no_session.json")
   end
 
   def call(conn, {:error, :invalid_issuer}) do
     conn
     |> put_status(:bad_request)
-    |> render(GW.SessionView, "invalid_issuer.json")
+    |> render(SRM.SessionView, "invalid_issuer.json")
   end
 
   def call(conn, {:error, :already_taken_username}) do
     conn
     |> put_status(:bad_request)
-    |> render(GW.SessionView, "already_taken_username.json")
+    |> render(SRM.SessionView, "already_taken_username.json")
   end
 
   def call(conn, {:error, :already_taken_email}) do
     conn
     |> put_status(:bad_request)
-    |> render(GW.SessionView, "already_taken_email.json")
+    |> render(SRM.SessionView, "already_taken_email.json")
   end
 
   def call(conn, {:error, "Unknown resource type"}) do
     conn
     |> put_status(:unauthorized)
-    |> render(GW.SessionView, "wrong_token.json")
+    |> render(SRM.SessionView, "wrong_token.json")
   end
 
   def call(conn, {:error, :user_not_found}) do
     conn
     |> put_status(:not_found)
-    |> render(GW.UserView, "404.json")
+    |> render(SRM.UserView, "404.json")
   end
 
   def call(conn, {:error, :forbidden}) do
     conn
     |> put_status(:forbidden)
-    |> render(GW.ErrorView, "permission_denied.json")
+    |> render(SRM.ErrorView, "permission_denied.json")
   end
 end

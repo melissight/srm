@@ -1,9 +1,9 @@
-defmodule GW.Mixfile do
+defmodule SRM.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :gw,
+      app: :srm,
       version: "0.0.1",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule GW.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {GW.Application, []},
+      mod: {SRM.Application, []},
       extra_applications: [:logger, :runtime_tools, :comeonin]
     ]
   end
@@ -44,7 +44,8 @@ defmodule GW.Mixfile do
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 4.0.3"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:guardian, "~> 1.0"}
+      {:guardian, "~> 1.0"},
+      {:plsm, "~> 2.2.0"}
     ]
   end
 

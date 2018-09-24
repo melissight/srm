@@ -1,10 +1,10 @@
-defmodule GW.AuthErrorController do
+defmodule SRM.AuthErrorController do
   import Plug.Conn
-  use GW.Web, :controller
+  use SRM.Web, :controller
 
   def auth_error(conn, {_type, _reason}, _opts) do
     conn
     |> put_status(:unauthorized)
-    |> render(GW.SessionView, "wrong_credentials.json")
+    |> render(SRM.SessionView, "wrong_credentials.json")
   end
 end

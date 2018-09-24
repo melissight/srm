@@ -1,5 +1,5 @@
-defmodule GW.Router do
-  use GW.Web, :router
+defmodule SRM.Router do
+  use SRM.Web, :router
 
   pipeline :browser do
     plug(:accepts, ["html"])
@@ -22,15 +22,15 @@ defmodule GW.Router do
 
     plug(
       Guardian.Plug.Pipeline,
-      module: GW.Guardian,
-      error_handler: GW.AuthErrorController
+      module: SRM.Guardian,
+      error_handler: SRM.AuthErrorController
     )
 
     plug(Guardian.Plug.VerifySession)
     plug(Guardian.Plug.LoadResource)
   end
 
-  scope "/api", GW do
+  scope "/api", SRM do
     pipe_through(:api)
 
     scope "/" do
@@ -49,7 +49,7 @@ defmodule GW.Router do
     end
   end
 
-  scope "/", GW do
+  scope "/", SRM do
     # Use the default browser stack
     pipe_through(:browser)
 

@@ -1,5 +1,5 @@
-defmodule GW.PageControllerTest do
-  use GW.ConnCase
+defmodule SRM.PageControllerTest do
+  use SRM.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

@@ -1,12 +1,12 @@
-defmodule GW.Accounts do
+defmodule SRM.Accounts do
   @moduledoc """
   The Accounts context.
   """
 
   import Ecto.{Query, Changeset}, warn: false
-  alias GW.Repo
+  alias SRM.Repo
 
-  alias GW.Accounts.User
+  alias SRM.Accounts.User
 
   @doc """
   Returns the list of users.
@@ -154,27 +154,27 @@ defmodule GW.Accounts do
   end
 
   def get_current_token(conn) do
-    GW.Guardian.Plug.current_token(conn)
+    SRM.Guardian.Plug.current_token(conn)
   end
 
   def sign_out(conn) do
-    GW.Guardian.Plug.sign_out(conn)
+    SRM.Guardian.Plug.sign_out(conn)
   end
 
   def get_claims(conn) do
-    GW.Guardian.Plug.current_claims(conn)
+    SRM.Guardian.Plug.current_claims(conn)
   end
 
   def refresh_token(jwt) do
-    GW.Guardian.refresh(jwt)
+    SRM.Guardian.refresh(jwt)
   end
 
   def get_current_user(conn) do
-    GW.Guardian.Plug.current_resource(conn)
+    SRM.Guardian.Plug.current_resource(conn)
   end
 
   def sign_in_user(conn, user) do
-    GW.Guardian.Plug.sign_in(conn, user)
+    SRM.Guardian.Plug.sign_in(conn, user)
   end
 
   def authenticate(%{"email" => email, "password" => password}) do

@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-gw",
+  "name": "gw-srm",
   "version": "0.0.1",
-  "description": "Minimalistic ES6 React gw",
+  "description": "Goodwill Dispatch Dashboard",
   "main": "index.js",
   "scripts": {
     "prestart": "npm run production",
@@ -14,8 +14,7 @@
     "prepush": "cross-env npm run lint && npm test && cd .. && mix test",
     "watch": "webpack --watch --color"
   },
-  "author": "Dmitriy Chernyshov <dmitriy.chernyshof@gmail.com>",
-  "license": "MIT",
+  "author": "Sightsource",
   "jest": {
     "modulePaths": [
       "app"

@@ -1,4 +1,4 @@
-defmodule GW.DataCase do
+defmodule SRM.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule GW.DataCase do
 
   using do
     quote do
-      alias GW.Repo
+      alias SRM.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import GW.DataCase
+      import SRM.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GW.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SRM.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GW.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(SRM.Repo, {:shared, self()})
     end
 
     :ok

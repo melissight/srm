@@ -1,9 +1,9 @@
-defmodule GW.SessionView do
-  use GW.Web, :view
-  alias GW.SessionView
+defmodule SRM.SessionView do
+  use SRM.Web, :view
+  alias SRM.SessionView
 
   def render("show.json", %{user: user, jwt: jwt}) do
-    %{data: render_one(user, GW.UserView, "user.json"), meta: %{token: jwt}}
+    %{data: render_one(user, SRM.UserView, "user.json"), meta: %{token: jwt}}
   end
 
   def render("delete.json", _) do

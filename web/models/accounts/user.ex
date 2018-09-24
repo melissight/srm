@@ -1,7 +1,7 @@
-defmodule GW.Accounts.User do
+defmodule SRM.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias GW.Accounts.User
+  alias SRM.Accounts.User
 
   @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :username, :email, :time_zone_id, :phone]}
 

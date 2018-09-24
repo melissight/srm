@@ -1,10 +1,10 @@
-defmodule GW.AccountsTest do
-  use GW.DataCase
+defmodule SRM.AccountsTest do
+  use SRM.DataCase
 
-  alias GW.Accounts
+  alias SRM.Accounts
 
   describe "users" do
-    alias GW.Accounts.User
+    alias SRM.Accounts.User
 
     @valid_attrs %{
       name: "Test Name",

@@ -1,3 +1,3 @@
-defmodule GW.LayoutViewTest do
-  use GW.ConnCase, async: true
+defmodule SRM.LayoutViewTest do
+  use SRM.ConnCase, async: true
 end

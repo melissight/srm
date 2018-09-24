@@ -1,5 +1,5 @@
-defmodule GW.PageController do
-  use GW.Web, :controller
+defmodule SRM.PageController do
+  use SRM.Web, :controller
 
   def index(conn, _params) do
     render(conn, "index.html")

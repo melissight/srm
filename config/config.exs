@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :gw,
-  ecto_repos: [GW.Repo]
+config :srm,
+  ecto_repos: [SRM.Repo]
 
 # Configures the endpoint
-config :gw, GW.Endpoint,
+config :srm, SRM.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "H5AcfaG9fEz2gjjKEBJ3PNT7peIPEo270GOHwgataQEsfdx8Ujsi3aDlxel77eQH",
-  render_errors: [view: GW.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: GW.PubSub,
+  secret_key_base: "3xaEWOcbJw40r0bW1nOPGxeBvMAusUiMJ0oxq9SZ1L/t4ZsXzCYit61aYFZskJU7",
+  render_errors: [view: SRM.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: SRM.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -23,11 +23,11 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Configures Guardian
-config :gw, GW.Guardian,
-  issuer: "gw",
+config :srm, SRM.Guardian,
+  issuer: "srm",
   ttl: {30, :days},
   verify_issuer: true
-  # serializer: GW.GuardianSerializer
+  # serializer: SRM.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

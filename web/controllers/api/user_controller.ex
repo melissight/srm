@@ -1,10 +1,10 @@
-defmodule GW.UserController do
-  use GW.Web, :controller
+defmodule SRM.UserController do
+  use SRM.Web, :controller
 
-  alias GW.Accounts
-  alias GW.Accounts.User
+  alias SRM.Accounts
+  alias SRM.Accounts.User
 
-  action_fallback(GW.FallbackController)
+  action_fallback(SRM.FallbackController)
 
   def index(conn, _) do
     users = Accounts.list_users()
@@ -36,7 +36,7 @@ defmodule GW.UserController do
 
       new_conn
       |> put_status(:created)
-      |> render(GW.SessionView, "show.json", user: user, jwt: jwt)
+      |> render(SRM.SessionView, "show.json", user: user, jwt: jwt)
     end
   end
 

@@ -1,4 +1,4 @@
-# alias GW.{Repo, User}
+# alias SRM.{Repo, User}
 
 # [
 #   %{
@@ -18,7 +18,7 @@
 
 
 
-alias GW.{Repo, TimeZone}
+alias SRM.{Repo, TimeZone}
 
 [
   %{

@@ -1,5 +1,5 @@
-defmodule GW.TimeZone do
-  use GW.Web, :model
+defmodule SRM.TimeZone do
+  use SRM.Web, :model
   
 
   @derive {Poison.Encoder, only: [:id, :time_zone_name, :time_zone_abbrev, :utc_offset, :is_dst]}
@@ -10,7 +10,7 @@ defmodule GW.TimeZone do
     field :utc_offset, :integer
     field :is_dst, :boolean
 
-    has_many :user, GW.User
+    has_many :user, SRM.User
 
     timestamps()
   end

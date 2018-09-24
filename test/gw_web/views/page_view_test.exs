@@ -1,3 +1,3 @@
-defmodule GW.PageViewTest do
-  use GW.ConnCase, async: true
+defmodule SRM.PageViewTest do
+  use SRM.ConnCase, async: true
 end

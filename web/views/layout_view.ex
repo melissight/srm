@@ -1,3 +1,3 @@
-defmodule GW.LayoutView do
-  use GW.Web, :view
+defmodule SRM.LayoutView do
+  use SRM.Web, :view
 end

@@ -1,3 +1,3 @@
-defmodule GW.PageView do
-  use GW.Web, :view
+defmodule SRM.PageView do
+  use SRM.Web, :view
 end

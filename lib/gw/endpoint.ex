@@ -1,7 +1,7 @@
-defmodule GW.Endpoint do
-  use Phoenix.Endpoint, otp_app: :gw
+defmodule SRM.Endpoint do
+  use Phoenix.Endpoint, otp_app: :srm
 
-  socket("/socket", GW.UserSocket)
+  socket("/socket", SRM.UserSocket)
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -10,7 +10,7 @@ defmodule GW.Endpoint do
   plug(
     Plug.Static,
     at: "/",
-    from: :gw,
+    from: :srm,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
   )
@@ -42,11 +42,11 @@ defmodule GW.Endpoint do
   plug(
     Plug.Session,
     store: :cookie,
-    key: "_gw_key",
-    signing_salt: "7ptxdQY6"
+    key: "_srm_key",
+    signing_salt: "5081B20242E348$$A5B77262E945B2C6B5"
   )
 
-  plug(GW.Router)
+  plug(SRM.Router)
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

@@ -1,6 +1,6 @@
-defmodule GW.UserView do
-  use GW.Web, :view
-  alias GW.UserView
+defmodule SRM.UserView do
+  use SRM.Web, :view
+  alias SRM.UserView
 
   def render("index.json", %{users: users, current_user: %{is_staff: true}}) do
     %{

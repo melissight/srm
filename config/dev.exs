@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :gw, GW.Endpoint,
+config :srm, GW.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -35,13 +35,13 @@ config :gw, GW.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :gw, GW.Endpoint,
+config :srm, GW.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/gw_web/views/.*(ex)$},
-      ~r{lib/gw_web/templates/.*(eex)$}
+      ~r{lib/srm_web/views/.*(ex)$},
+      ~r{lib/srm_web/templates/.*(eex)$}
     ]
   ]
 
@@ -53,14 +53,26 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :gw, GW.Repo,
+config :srm, SRM.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "s2saPassword1",
-  database: "gw",
+  database: "srm_dev",
   hostname: "localhost",
   pool_size: 10
 
 # Configure Guardian secret key
-config :gw, GW.Guardian,
-  secret_key: "OSMuzr1uWJthItzsyXItnRoM3MLNaZXUwkamEHTwxUBYPPDuQTLPJnMBMiMATRjF"
+config :srm, SRM.Guardian,
+  secret_key: "FLvNk/r9AI/WGB4jR8AWFS4LiXK0e0JmtOrJj5jliPNVdSP8l53LSY2W1WnRZ0EF"
+
+
+# Configure Plsm Ecto Model and Migration generator
+config :plsm,
+module_name: "GW",
+destination: "/web/models",
+server: "localhost",
+port: "5432",
+database_name: "GW",
+username: "postgres",
+password: "s2saPassword1",
+type: :postgres

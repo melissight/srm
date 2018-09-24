@@ -1,5 +1,5 @@
-defmodule GW.Repo do
-  use Ecto.Repo, otp_app: :gw
+defmodule SRM.Repo do
+  use Ecto.Repo, otp_app: :srm
 
   @doc """
   Dynamically loads the repository url from the

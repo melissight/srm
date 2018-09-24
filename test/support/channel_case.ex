@@ -1,4 +1,4 @@
-defmodule GW.ChannelCase do
+defmodule SRM.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule GW.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint GW.Endpoint
+      @endpoint SRM.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GW.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SRM.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GW.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(SRM.Repo, {:shared, self()})
     end
 
     :ok

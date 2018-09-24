@@ -1,4 +1,4 @@
-defmodule GW.ErrorHelpers do
+defmodule SRM.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule GW.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(GW.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(SRM.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(GW.Gettext, "errors", msg, opts)
+      Gettext.dgettext(SRM.Gettext, "errors", msg, opts)
     end
   end
 end
